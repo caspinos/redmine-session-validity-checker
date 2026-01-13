@@ -1,0 +1,70 @@
+{
+  "extensionName": {
+    "message": "Redmine Session Validity Checker",
+    "description": "Nazwa rozszerzenia"
+  },
+  "extensionDescription": {
+    "message": "Monitoruje sesje Redmine i ostrzega gdy sesja wygasa, aby zapobiec utracie danych",
+    "description": "Opis rozszerzenia"
+  },
+  "sessionExpiredWarning": {
+    "message": "Uwaga! Sesja użytkownika wygasła. Zapisanie danych formularza może zakończyć się utratą danych.",
+    "description": "Komunikat ostrzegawczy wyświetlany w banerze gdy sesja wygaśnie"
+  },
+  "optionsTitle": {
+    "message": "Redmine Session Checker - Ustawienia",
+    "description": "Tytuł strony opcji"
+  },
+  "modeLabel": {
+    "message": "Tryb",
+    "description": "Etykieta wyboru trybu"
+  },
+  "blacklistMode": {
+    "message": "Tryb czarnej listy",
+    "description": "Opcja trybu czarnej listy"
+  },
+  "whitelistMode": {
+    "message": "Tryb białej listy",
+    "description": "Opcja trybu białej listy"
+  },
+  "blacklistHelp": {
+    "message": "Tryb czarnej listy: Rozszerzenie będzie działać na wszystkich stronach Z WYJĄTKIEM tych na liście poniżej.",
+    "description": "Tekst pomocy dla trybu czarnej listy"
+  },
+  "whitelistHelp": {
+    "message": "Tryb białej listy: Rozszerzenie będzie działać TYLKO na stronach z listy poniżej.",
+    "description": "Tekst pomocy dla trybu białej listy"
+  },
+  "domainsLabel": {
+    "message": "Domeny",
+    "description": "Etykieta listy domen"
+  },
+  "domainsHelp": {
+    "message": "Dodaj domeny do uwzględnienia lub wykluczenia na podstawie wybranego trybu. Możesz używać symboli wieloznacznych (np. *.example.com).",
+    "description": "Tekst pomocy dla domen"
+  },
+  "domainPlaceholder": {
+    "message": "example.com lub *.example.com",
+    "description": "Placeholder dla pola domeny"
+  },
+  "addButton": {
+    "message": "Dodaj",
+    "description": "Tekst przycisku dodawania"
+  },
+  "removeButton": {
+    "message": "Usuń",
+    "description": "Tekst przycisku usuwania"
+  },
+  "saveButton": {
+    "message": "Zapisz ustawienia",
+    "description": "Tekst przycisku zapisywania"
+  },
+  "settingsSaved": {
+    "message": "Ustawienia zapisane pomyślnie!",
+    "description": "Komunikat wyświetlany po zapisaniu ustawień"
+  },
+  "domainAlreadyExists": {
+    "message": "Ta domena już istnieje na liście.",
+    "description": "Komunikat błędu przy próbie dodania zduplikowanej domeny"
+  }
+}

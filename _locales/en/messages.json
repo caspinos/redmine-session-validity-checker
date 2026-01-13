@@ -1,0 +1,70 @@
+{
+  "extensionName": {
+    "message": "Redmine Session Validity Checker",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Monitors Redmine sessions and warns when session expires to prevent data loss",
+    "description": "Description of the extension"
+  },
+  "sessionExpiredWarning": {
+    "message": "Warning! User session has expired. Saving form data may result in data loss.",
+    "description": "Warning message displayed in the banner when session expires"
+  },
+  "optionsTitle": {
+    "message": "Redmine Session Checker - Settings",
+    "description": "Title of the options page"
+  },
+  "modeLabel": {
+    "message": "Mode",
+    "description": "Label for mode selection"
+  },
+  "blacklistMode": {
+    "message": "Blacklist Mode",
+    "description": "Blacklist mode option"
+  },
+  "whitelistMode": {
+    "message": "Whitelist Mode",
+    "description": "Whitelist mode option"
+  },
+  "blacklistHelp": {
+    "message": "Blacklist Mode: Extension will work on all sites EXCEPT those in the list below.",
+    "description": "Help text for blacklist mode"
+  },
+  "whitelistHelp": {
+    "message": "Whitelist Mode: Extension will work ONLY on sites in the list below.",
+    "description": "Help text for whitelist mode"
+  },
+  "domainsLabel": {
+    "message": "Domains",
+    "description": "Label for domains list"
+  },
+  "domainsHelp": {
+    "message": "Add domains to include or exclude based on the selected mode. You can use wildcards (e.g., *.example.com).",
+    "description": "Help text for domains"
+  },
+  "domainPlaceholder": {
+    "message": "example.com or *.example.com",
+    "description": "Placeholder for domain input"
+  },
+  "addButton": {
+    "message": "Add",
+    "description": "Add button text"
+  },
+  "removeButton": {
+    "message": "Remove",
+    "description": "Remove button text"
+  },
+  "saveButton": {
+    "message": "Save Settings",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "Settings saved successfully!",
+    "description": "Message shown when settings are saved"
+  },
+  "domainAlreadyExists": {
+    "message": "This domain already exists in the list.",
+    "description": "Error message when trying to add duplicate domain"
+  }
+}

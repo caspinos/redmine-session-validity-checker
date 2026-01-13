@@ -1,0 +1,70 @@
+{
+  "extensionName": {
+    "message": "Redmine Session Validity Checker",
+    "description": "Name der Erweiterung"
+  },
+  "extensionDescription": {
+    "message": "Überwacht Redmine-Sitzungen und warnt, wenn die Sitzung abläuft, um Datenverlust zu vermeiden",
+    "description": "Beschreibung der Erweiterung"
+  },
+  "sessionExpiredWarning": {
+    "message": "Warnung! Die Benutzersitzung ist abgelaufen. Das Speichern von Formulardaten kann zu Datenverlust führen.",
+    "description": "Warnmeldung im Banner, wenn die Sitzung abläuft"
+  },
+  "optionsTitle": {
+    "message": "Redmine Session Checker - Einstellungen",
+    "description": "Titel der Optionsseite"
+  },
+  "modeLabel": {
+    "message": "Modus",
+    "description": "Beschriftung für Modusauswahl"
+  },
+  "blacklistMode": {
+    "message": "Blacklist-Modus",
+    "description": "Blacklist-Modus-Option"
+  },
+  "whitelistMode": {
+    "message": "Whitelist-Modus",
+    "description": "Whitelist-Modus-Option"
+  },
+  "blacklistHelp": {
+    "message": "Blacklist-Modus: Die Erweiterung funktioniert auf allen Websites AUSSER denen in der folgenden Liste.",
+    "description": "Hilfetext für Blacklist-Modus"
+  },
+  "whitelistHelp": {
+    "message": "Whitelist-Modus: Die Erweiterung funktioniert NUR auf Websites in der folgenden Liste.",
+    "description": "Hilfetext für Whitelist-Modus"
+  },
+  "domainsLabel": {
+    "message": "Domains",
+    "description": "Beschriftung für Domainliste"
+  },
+  "domainsHelp": {
+    "message": "Fügen Sie Domains hinzu, die je nach ausgewähltem Modus ein- oder ausgeschlossen werden sollen. Sie können Platzhalter verwenden (z.B. *.example.com).",
+    "description": "Hilfetext für Domains"
+  },
+  "domainPlaceholder": {
+    "message": "example.com oder *.example.com",
+    "description": "Platzhalter für Domain-Eingabefeld"
+  },
+  "addButton": {
+    "message": "Hinzufügen",
+    "description": "Text der Hinzufügen-Schaltfläche"
+  },
+  "removeButton": {
+    "message": "Entfernen",
+    "description": "Text der Entfernen-Schaltfläche"
+  },
+  "saveButton": {
+    "message": "Einstellungen speichern",
+    "description": "Text der Speichern-Schaltfläche"
+  },
+  "settingsSaved": {
+    "message": "Einstellungen erfolgreich gespeichert!",
+    "description": "Meldung, wenn Einstellungen gespeichert wurden"
+  },
+  "domainAlreadyExists": {
+    "message": "Diese Domain ist bereits in der Liste vorhanden.",
+    "description": "Fehlermeldung beim Versuch, eine doppelte Domain hinzuzufügen"
+  }
+}

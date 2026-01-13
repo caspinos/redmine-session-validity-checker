@@ -1,0 +1,70 @@
+{
+  "extensionName": {
+    "message": "Redmine Session Validity Checker",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Monitorea sesiones de Redmine y advierte cuando la sesión expira para evitar pérdida de datos",
+    "description": "Descripción de la extensión"
+  },
+  "sessionExpiredWarning": {
+    "message": "¡Advertencia! La sesión del usuario ha expirado. Guardar los datos del formulario puede resultar en pérdida de datos.",
+    "description": "Mensaje de advertencia mostrado en el banner cuando la sesión expira"
+  },
+  "optionsTitle": {
+    "message": "Redmine Session Checker - Configuración",
+    "description": "Título de la página de opciones"
+  },
+  "modeLabel": {
+    "message": "Modo",
+    "description": "Etiqueta para selección de modo"
+  },
+  "blacklistMode": {
+    "message": "Modo lista negra",
+    "description": "Opción de modo lista negra"
+  },
+  "whitelistMode": {
+    "message": "Modo lista blanca",
+    "description": "Opción de modo lista blanca"
+  },
+  "blacklistHelp": {
+    "message": "Modo lista negra: La extensión funcionará en todos los sitios EXCEPTO los de la lista siguiente.",
+    "description": "Texto de ayuda para modo lista negra"
+  },
+  "whitelistHelp": {
+    "message": "Modo lista blanca: La extensión funcionará SOLO en los sitios de la lista siguiente.",
+    "description": "Texto de ayuda para modo lista blanca"
+  },
+  "domainsLabel": {
+    "message": "Dominios",
+    "description": "Etiqueta para lista de dominios"
+  },
+  "domainsHelp": {
+    "message": "Agregue dominios para incluir o excluir según el modo seleccionado. Puede usar comodines (ej., *.example.com).",
+    "description": "Texto de ayuda para dominios"
+  },
+  "domainPlaceholder": {
+    "message": "example.com o *.example.com",
+    "description": "Marcador de posición para campo de dominio"
+  },
+  "addButton": {
+    "message": "Agregar",
+    "description": "Texto del botón agregar"
+  },
+  "removeButton": {
+    "message": "Eliminar",
+    "description": "Texto del botón eliminar"
+  },
+  "saveButton": {
+    "message": "Guardar configuración",
+    "description": "Texto del botón guardar"
+  },
+  "settingsSaved": {
+    "message": "¡Configuración guardada exitosamente!",
+    "description": "Mensaje mostrado cuando se guarda la configuración"
+  },
+  "domainAlreadyExists": {
+    "message": "Este dominio ya existe en la lista.",
+    "description": "Mensaje de error al intentar agregar un dominio duplicado"
+  }
+}

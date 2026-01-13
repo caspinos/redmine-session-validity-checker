@@ -1,0 +1,70 @@
+{
+  "extensionName": {
+    "message": "Redmine Session Validity Checker",
+    "description": "Nom de l'extension"
+  },
+  "extensionDescription": {
+    "message": "Surveille les sessions Redmine et avertit lorsque la session expire pour éviter la perte de données",
+    "description": "Description de l'extension"
+  },
+  "sessionExpiredWarning": {
+    "message": "Attention ! La session utilisateur a expiré. L'enregistrement des données du formulaire peut entraîner une perte de données.",
+    "description": "Message d'avertissement affiché dans la bannière lorsque la session expire"
+  },
+  "optionsTitle": {
+    "message": "Redmine Session Checker - Paramètres",
+    "description": "Titre de la page d'options"
+  },
+  "modeLabel": {
+    "message": "Mode",
+    "description": "Étiquette pour la sélection du mode"
+  },
+  "blacklistMode": {
+    "message": "Mode liste noire",
+    "description": "Option du mode liste noire"
+  },
+  "whitelistMode": {
+    "message": "Mode liste blanche",
+    "description": "Option du mode liste blanche"
+  },
+  "blacklistHelp": {
+    "message": "Mode liste noire : L'extension fonctionnera sur tous les sites SAUF ceux de la liste ci-dessous.",
+    "description": "Texte d'aide pour le mode liste noire"
+  },
+  "whitelistHelp": {
+    "message": "Mode liste blanche : L'extension fonctionnera UNIQUEMENT sur les sites de la liste ci-dessous.",
+    "description": "Texte d'aide pour le mode liste blanche"
+  },
+  "domainsLabel": {
+    "message": "Domaines",
+    "description": "Étiquette pour la liste des domaines"
+  },
+  "domainsHelp": {
+    "message": "Ajoutez des domaines à inclure ou exclure en fonction du mode sélectionné. Vous pouvez utiliser des caractères génériques (par ex., *.example.com).",
+    "description": "Texte d'aide pour les domaines"
+  },
+  "domainPlaceholder": {
+    "message": "example.com ou *.example.com",
+    "description": "Placeholder pour le champ de domaine"
+  },
+  "addButton": {
+    "message": "Ajouter",
+    "description": "Texte du bouton d'ajout"
+  },
+  "removeButton": {
+    "message": "Supprimer",
+    "description": "Texte du bouton de suppression"
+  },
+  "saveButton": {
+    "message": "Enregistrer les paramètres",
+    "description": "Texte du bouton d'enregistrement"
+  },
+  "settingsSaved": {
+    "message": "Paramètres enregistrés avec succès !",
+    "description": "Message affiché lorsque les paramètres sont enregistrés"
+  },
+  "domainAlreadyExists": {
+    "message": "Ce domaine existe déjà dans la liste.",
+    "description": "Message d'erreur lors de la tentative d'ajout d'un domaine en double"
+  }
+}
