@@ -12,7 +12,8 @@
     "<all_urls>"
   ],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"],
+	"service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -26,5 +27,10 @@
     "16": "icon16.png",
     "48": "icon48.png",
     "128": "icon128.png"
+  },
+  "browser_specific_settings": {
+	  "gecko": {
+		"id": "{29533187-a19f-41fd-9c57-d52899cc0c9a}"
+	  }
   }
 }

@@ -69,6 +69,15 @@ function getMessage(messageName) {
   return chrome.i18n.getMessage(messageName);
 }
 
+function handleSessionExpired() {
+  addWarningBanner();
+  if (sessionCheckInterval) {
+    clearInterval(sessionCheckInterval);
+    sessionCheckInterval = null;
+  }
+}
+
+
 // Add warning banner
 function addWarningBanner() {
   // Don't add banner if it already exists
@@ -147,10 +156,10 @@ async function startSessionMonitoring() {
   sessionCheckInterval = setInterval(async () => {
     const sessionValid = await isSessionValid();
     
-    // Step 5: If session is invalidated, add banner
+    // Step 5: If session is invalidated, stop monitoring and add banner
     if (!sessionValid) {
       console.log('Redmine Session Checker: Session expired');
-      addWarningBanner();
+      handleSessionExpired();
     } else {
       console.log('Redmine Session Checker: Session still valid');
     }
@@ -160,7 +169,8 @@ async function startSessionMonitoring() {
   const sessionValid = await isSessionValid();
   if (!sessionValid) {
     console.log('Redmine Session Checker: Session already expired');
-    addWarningBanner();
+    
+    handleSessionExpired();
   }
 }
 
