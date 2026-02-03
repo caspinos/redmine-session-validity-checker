@@ -1,0 +1,17 @@
+# Build artifacts
+dist/
+chrome-build/
+web-ext-artifacts/
+*.zip
+*.xpi
+
+# Node modules (if added in the future)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
