@@ -1,0 +1,75 @@
+name: Release Extension
+
+on:
+  push:
+    tags:
+      - 'release_*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Required to create releases and upload assets
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install web-ext
+        run: npm install -g web-ext
+
+      - name: Get version from tag
+        id: tag_version
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/release_}
+          echo "version=${TAG_NAME}" >> $GITHUB_OUTPUT
+          echo "Extension version: ${TAG_NAME}"
+
+      - name: Build Firefox package
+        run: |
+          set -e
+          rm -rf ./dist
+          web-ext build --overwrite-dest --artifacts-dir ./dist
+          # Safe to use wildcard since dist was just cleaned
+          mv ./dist/*.zip ./dist/redmine-session-validity-checker-firefox-${{ steps.tag_version.outputs.version }}.xpi
+
+      - name: Build Chrome package
+        run: |
+          set -e
+          # Create a temporary directory for Chrome build (without Firefox-specific settings)
+          mkdir -p ./chrome-build
+
+          # Copy only necessary files to chrome-build
+          # NOTE: If new files are added to the extension, they must be added here too
+          cp manifest.json background.js content.js options.js options.html ./chrome-build/
+          cp icon16.png icon48.png icon128.png redmine-session-validity-checker_512.png ./chrome-build/
+          cp -r _locales ./chrome-build/
+
+          cd ./chrome-build
+
+          # Remove Firefox-specific settings from manifest
+          jq 'del(.browser_specific_settings)' manifest.json > manifest_tmp.json
+          mv manifest_tmp.json manifest.json
+
+          # Create zip for Chrome
+          zip -r ../dist/redmine-session-validity-checker-chrome-${{ steps.tag_version.outputs.version }}.zip .
+          cd ..
+          rm -rf ./chrome-build
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/redmine-session-validity-checker-firefox-${{ steps.tag_version.outputs.version }}.xpi
+            dist/redmine-session-validity-checker-chrome-${{ steps.tag_version.outputs.version }}.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
