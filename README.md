@@ -114,6 +114,24 @@ The extension is built using Manifest V3 for maximum compatibility with modern b
 - **options.js/html**: User interface for configuration
 - **_locales**: i18n translations using Chrome's internationalization API
 
+### Releasing
+
+To create a new release with packaged extensions:
+
+1. Update the version in `manifest.json`
+2. Commit your changes
+3. Create and push a tag with the format `release_X.Y.Z`:
+   ```bash
+   git tag release_1.0.0
+   git push origin release_1.0.0
+   ```
+4. The GitHub Actions workflow will automatically:
+   - Build a Firefox package (.xpi)
+   - Build a Chrome package (.zip)
+   - Create a GitHub release with both packages as artifacts
+
+The packaged extensions will be available in the GitHub Releases page.
+
 ## Privacy
 
 This extension:

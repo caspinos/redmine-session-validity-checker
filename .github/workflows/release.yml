@@ -8,50 +8,50 @@ on:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
+
       - name: Install web-ext
         run: npm install -g web-ext
-      
+
       - name: Get version from tag
         id: tag_version
         run: |
           TAG_NAME=${GITHUB_REF#refs/tags/release_}
           echo "version=${TAG_NAME}" >> $GITHUB_OUTPUT
           echo "Extension version: ${TAG_NAME}"
-      
+
       - name: Build Firefox package
         run: |
           web-ext build --overwrite-dest --artifacts-dir ./dist
           mv ./dist/*.zip ./dist/redmine-session-validity-checker-firefox-${{ steps.tag_version.outputs.version }}.xpi
-      
+
       - name: Build Chrome package
         run: |
           # Create a temporary directory for Chrome build (without Firefox-specific settings)
           mkdir -p ./chrome-build
-          
+
           # Copy only necessary files (not directories that might include build artifacts)
           find . -maxdepth 1 -type f \( -name "*.js" -o -name "*.html" -o -name "*.png" -o -name "manifest.json" \) -exec cp {} ./chrome-build/ \;
           cp -r _locales ./chrome-build/
-          
+
           cd ./chrome-build
-          
+
           # Remove Firefox-specific settings from manifest
           jq 'del(.browser_specific_settings)' manifest.json > manifest_tmp.json && mv manifest_tmp.json manifest.json
-          
+
           # Create zip for Chrome
           zip -r ../dist/redmine-session-validity-checker-chrome-${{ steps.tag_version.outputs.version }}.zip .
           cd ..
           rm -rf ./chrome-build
-      
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
