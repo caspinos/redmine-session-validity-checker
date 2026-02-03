@@ -33,6 +33,7 @@ jobs:
           set -e
           rm -rf ./dist
           web-ext build --overwrite-dest --artifacts-dir ./dist
+          # Safe to use wildcard since dist was just cleaned
           mv ./dist/*.zip ./dist/redmine-session-validity-checker-firefox-${{ steps.tag_version.outputs.version }}.xpi
 
       - name: Build Chrome package
@@ -42,6 +43,7 @@ jobs:
           mkdir -p ./chrome-build
 
           # Copy only necessary files to chrome-build
+          # NOTE: If new files are added to the extension, they must be added here too
           cp manifest.json background.js content.js options.js options.html ./chrome-build/
           cp icon16.png icon48.png icon128.png redmine-session-validity-checker_512.png ./chrome-build/
           cp -r _locales ./chrome-build/
