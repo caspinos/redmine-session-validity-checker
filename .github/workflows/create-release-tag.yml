@@ -1,0 +1,44 @@
+name: Create Release Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., 1.0.0). Must match the version in manifest.json.'
+        required: true
+        default: '1.0.0'
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Required to create and push tags
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify version matches manifest.json
+        run: |
+          MANIFEST_VERSION=$(jq -r '.version' manifest.json)
+          INPUT_VERSION="${{ inputs.version }}"
+          if [ "$MANIFEST_VERSION" != "$INPUT_VERSION" ]; then
+            echo "Error: Input version ($INPUT_VERSION) does not match manifest.json version ($MANIFEST_VERSION)"
+            exit 1
+          fi
+          echo "Version verified: $MANIFEST_VERSION"
+
+      - name: Create and push release tag
+        run: |
+          TAG="release_${{ inputs.version }}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Error: Tag $TAG already exists."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "$TAG" -m "Release version ${{ inputs.version }}"
+          git push origin "$TAG"
